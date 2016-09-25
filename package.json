@@ -1,0 +1,19 @@
+{
+  "name": "@alterior/testing",
+  "version": "0.0.1",
+  "description": "A testing framework to complement Alterior",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/alterior-mvc/alterior-testing.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "William Lahti <wilahti@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@alterior/core": "0.0.6",
+    "express": "^4.14.0",
+    "supertest": "^2.0.0"
+  }
+}
