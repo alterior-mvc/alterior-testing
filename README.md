@@ -1,4 +1,4 @@
-= Alterior Testing
+# Alterior Testing
 
 Provides a thin shim above [`mocha`](https://mochajs.org/) and [`supertest`](https://github.com/visionmedia/supertest) that simplifies testing apps using [`alterior`](https://github.com/alterior-mvc/alterior).
 Tries to remain familiar to existing mocha users while reducing boilerplate and making testing more natural.   
