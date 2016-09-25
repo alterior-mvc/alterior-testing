@@ -4,7 +4,7 @@ Provides a thin shim above [`mocha`](https://mochajs.org/) and [`supertest`](htt
 Tries to remain familiar to existing mocha users while reducing boilerplate and making testing more natural.   
 
 ```typescript
-import { teststrap } from 'teststrap';
+import { teststrap, it } from 'teststrap';
 import { App } from './app.ts';
 
 teststrap(App);
