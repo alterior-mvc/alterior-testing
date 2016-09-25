@@ -4,7 +4,8 @@ import { Provider } from '@angular/core';
 import * as express from 'express';
 
 /**
- * Represents an application under test
+ * Represents an application under test. 
+ * Provides HTTP call methods to initiate tests against specific REST endpoints.
  */
 export class TestApplicationInstance extends ApplicationInstance {
 	constructor() {
@@ -36,11 +37,23 @@ export class TestApplicationInstance extends ApplicationInstance {
 let mochaIt = global['it'];
 let targetApplicationClass = null;
 
+/**
+ * Declare the application class under test for a set of it() tests to follow.
+ */
 export function teststrap(appClass : Function) {
 	targetApplicationClass = appClass;
 }
 
+/**
+ * Declare a new test in the current suite using the application declared with teststrap(). 
+ * A fully booted test application instance will be provided to the test callback. 
+ */
 export function it(story : string, callback : (app : TestApplicationInstance) => (Promise<any> | void));
+/**
+ * Declare a new test in the current suite using the application declared with teststrap() with the 
+ * given additional dependency injection providers. 
+ * A fully booted test application instance will be provided to the test callback.
+ */
 export function it(story : string, providers : Provider[], callback : (app : TestApplicationInstance) => (Promise<any> | void));
 export function it(story : string, param2, param3?) {
 
@@ -63,17 +76,8 @@ export function it(story : string, param2, param3?) {
 					return;
 				}
 
-				if (test['end']) {
-					test['end']((err, res) => {
-						if (err)
-							done(err);
-						else
-							done();
-					});
-				} else {
-					test.then(() => done())
-						.catch(e => done(e));
-				}
+				test.then(() => done())
+					.catch(e => done(e));
 			} catch (e) {
 				done(e);
 			}
